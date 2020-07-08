@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% for message in app.flashes('Merci') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <div class="container" mt-4>
+        <h4>Mofifier Ville</h4>
+        {{ form_start(form) }}
+        <labe>
+            Code Ville
+        </labe>
+        <br>
+        {{ form_widget(form.code_ville,{'attr':{'class':'form-control'}}) }}
+        <labe>
+            Description Ville
+        </labe>
+        <br>
+        {{ form_widget(form.des_ville,{'attr':{'class':'form-control'}}) }}
+        <labe>
+            Code Detination
+        </labe>
+        <br>
+        {{ form_widget(form.code_des,{'attr':{'class':'form-control'}}) }}
+        <labe>
+            Image
+        </labe>
+        <br>
+        {{ form_widget(form.image,{'attr':{'class':'form-control'}}) }}
+        <br>
+        <button type="submit" class="btn btn-success" style='width:100px' > Modifier </button>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

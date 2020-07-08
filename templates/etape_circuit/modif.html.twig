@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container" mt-4>
+        <h4>Modifier EtapeCircuit</h4>
+        {{ form_start(form) }}
+        <label>
+            Code Etape
+        </label>
+        {{ form_widget(form.duree_etape,{'attr':{'class':'form-control'}}) }}
+        <br>
+        <label>
+            Ordre Etape
+        </label>
+        {{ form_widget(form.ordre_etape,{'attr':{'class':'form-control'}}) }}
+        <br>
+        <label>
+            Code Ville
+        </label>
+        {{ form_widget(form.code_ville,{'attr':{'class':'form-control'}}) }}
+        <br>
+        <label>
+            Code Circuit
+        </label>
+        {{ form_widget(form.code_circuit,{'attr':{'class':'form-control'}}) }}
+        <br>
+        <button type="submit" class="btn btn-success" style='width:100px' > Ajouter </button>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

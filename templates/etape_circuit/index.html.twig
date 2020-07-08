@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+{% block title 'Agence de Tour DSI202' %}
+{% block body %}
+
+    <div>
+    <h4 class="section-title h1 mx-auto" style="text-align: center;">Les Etapes du Circuit Correspondantes à {{ etapes[0].codecircuit.descircuit }}</h4>
+    <br>
+    {% if app.user %}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Ville</th>
+                <th scope="col">Duree</th>
+                <th scope="col">Ordre</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for e in etapes %}
+            <tr>
+                <th scope="row">{{ e.codeville.desville }}</th>
+                <td>{{ e.getDureeEtape() }} Jours</td>
+                <td>{{ e.getOrdreEtape() }}</td>
+                <th> <a class="btn btn-primary" href="{{  path('ModifierEtape',{'id':e.id})}}">Modifier</a> <a class="btn btn-danger" href="{{  path('deleteetape',{'id':e.id})}}">Supprimer</a></th>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div style="margin-left:42%">
+        <a class="btn btn-primary" href="{{ path('NouvelleEtape') }}" >Ajouter Etape</a>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+    {% else %}
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">Ville</th>
+            <th scope="col">Duree</th>
+            <th scope="col">Ordre</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for e in etapes %}
+            <tr>
+                <th scope="row">{{ e.codeville.desville }}</th>
+                <td>{{ e.getDureeEtape() }} Jours</td>
+                <td>{{ e.getOrdreEtape() }}</td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+    {% endif %}
+{% endblock %}

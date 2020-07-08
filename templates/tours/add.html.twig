@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container" mt-4>
+        <h4>Ajouter Destination</h4>
+        {{ form_start(form) }}
+        <label>
+            Code
+        </label>
+        {{ form_widget(form.code_dest,{'attr':{'class':'form-control'}}) }}
+        <br>
+        <label>
+            Destination
+        </label>
+        {{ form_widget(form.des_dest,{'attr':{'class':'form-control'}}) }}
+        <br>
+        <label>
+            Image
+        </label>
+        {{ form_widget(form.image,{'attr':{'class':'form-control'}}) }}
+        <br>
+
+        <button type="submit" class="btn btn-success" style='width:100px' > Ajouter </button>
+    {{ form_end(form) }}
+    </div>
+
+{% endblock %}

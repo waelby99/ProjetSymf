@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+{% block title 'Agence de Tour DSI202' %}
+{% block body %}
+
+<div>
+            <h4 class="section-title h1 mx-auto" style="text-align: center;">NOS DESTINATIONS</h4>
+    <br>
+    {% if app.user %}
+                {% for dest in destination %}
+
+                    <div style="margin-left:35%">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="image-flip">
+                        <div class="mainflip flip-0">
+                            <div class="frontside">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h4 class="card-title">{{ dest.getDesDest }}</h4>
+                                        <p><img class="img-fluid" src="{{  dest.getImage()}}" alt="card image"></p>
+                                        <a class="btn btn-primary btn-sm" href="{{ path('ville',{'id':dest.id}) }}">Détails</a>
+                                        <br>
+                                        <button class="btn btn-secondary btn-sm" style="float:left"><a id="btnA" href="{{ path('ModifierDestination',{'id':dest.id}) }}" style="color: white" >   Modifier</a></button>
+                                        <button class="btn btn-danger btn-sm" style="float:right"><a id="btnA" href="{{ path('deletedestination',{'id':dest.id}) }}" style="color: white">   Supprimer</a></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    </div>
+                    <br>
+            {% endfor %}
+
+<div style="margin-left:40%">
+    <a class="btn btn-primary" href="{{ path('NouvelleDestination') }}" >Ajouter Destination</a>
+
+</div>
+    <br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+    {% else %}
+        {% for dest in destination %}
+        <div style="margin-left:35%">
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip">
+                    <div class="mainflip flip-0">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">{{ dest.getDesDest }}</h4>
+                                    <p><img class="img-fluid" src="{{  dest.getImage()}}" alt="card image"></p>
+                                    <a class="btn btn-primary btn-sm" href="{{ path('ville',{'id':dest.id}) }}">Détails</a>
+                                    <br>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <br>
+            {% endfor %}
+
+
+<br>
+<br>
+<br>
+<br><br>
+<br>
+{% endif %}
+{% endblock %}

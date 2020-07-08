@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+{% block title 'Agence de Tour DSI202' %}
+{% block body %}
+    <div>
+{% if app.user %}
+    <h4 class="section-title h1 mx-auto" style="text-align: center;">NOS CIRCUITS</h4>
+    <br>
+
+    {% for c in circuit %}
+        <div style="margin-left:35%">
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip">
+                    <div class="mainflip flip-0">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">{{ c.getDesCircuit }}</h4>
+                                    <h4 class="card-title">Durée : {{ c.getDureeCircuit }} Jours</h4>
+                                    <a class="btn btn-primary btn-sm" href="{{ path('etape_circuit',{'id':c.id}) }}">Détails</a>
+                                    <br>
+                                    <button class="btn btn-secondary btn-sm" style="float:left"><a id="btnA" href="{{  path('ModifierCircuit',{'id':c.id})}}" style="color: white" >   Modifier</a></button>
+                                    <button class="btn btn-danger btn-sm" style="float:right"><a id="btnA" href="{{ path('deletecircuit',{'id':c.id}) }}" style="color: white">   Supprimer</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <br>
+    {% endfor %}
+
+    <div style="margin-left:40%">
+        <a class="btn btn-primary" href="{{  path('NouveauCircuit')}}" >Ajouter Circuit</a>
+
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+    {% else %}
+    <h4 class="section-title h1 mx-auto" style="text-align: center;">NOS CIRCUITS</h4>
+    <br>
+
+    {% for c in circuit %}
+        <div style="margin-left:35%">
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip">
+                    <div class="mainflip flip-0">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">{{ c.getDesCircuit }}</h4>
+                                    <h4 class="card-title">Durée : {{ c.getDureeCircuit }} Jours</h4>
+                                    <a class="btn btn-primary btn-sm" href="{{ path('etape_circuit',{'id':c.id}) }}">Détails</a>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <br>
+    {% endfor %}
+
+
+
+    <br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+    {% endif %}
+{% endblock %}

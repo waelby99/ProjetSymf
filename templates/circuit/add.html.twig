@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container" mt-4>
+        <h4>Ajouter Circuit</h4>
+        {{ form_start(form) }}
+        <label>
+            Code Circuit
+        </label>
+        {{ form_widget(form.code_circuit,{'attr':{'class':'form-control'}}) }}
+        <br>
+        <label>
+            Description du circuit
+        </label>
+        {{ form_widget(form.des_circuit,{'attr':{'class':'form-control'}}) }}
+        <br>
+        <label>
+            Durée du circuit
+        </label>
+        {{ form_widget(form.duree_circuit,{'attr':{'class':'form-control'}}) }}
+        <br>
+        <button type="submit" class="btn btn-success" style='width:100px' > Ajouter </button>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}
